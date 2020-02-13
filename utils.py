@@ -1,6 +1,6 @@
 import os, subprocess, glob
 import re
-import webbrowser, requests
+import webbrowser
 import random
 
 
@@ -60,6 +60,7 @@ class flickr_browse():
         if write:
             # write image data to file in directory specified by global PATH_OUT
             outfile = outfile_path( self.outdir, '{}.jpg'.format(d_hit['id']) )
+            import requests
             with open(outfile, "w") as file_out:
                 file_out.write( requests.get(hit_url).content )
 

@@ -40,7 +40,6 @@ import os
 import sys
 import getopt
 import webbrowser
-import requests
 from PIL import Image
 from collections import Counter, defaultdict
 from StringIO import StringIO
@@ -69,6 +68,7 @@ class glitch():
 
         # if not from_file, path is a URL to image online
         else:
+            import requests
             self.data = requests.get(path).content
             # use regex to extract name (id) for image from end of URL
             # after final backslash (greedy match) but before '_'
